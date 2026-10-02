@@ -11,6 +11,60 @@ const supabase = createClient(process.env.SUPABASE_URL!,process.env.SUPABASE_KEY
 
 export default async (req: Request) => { // главная функция
 
+// MAX Webhook → Silly Development
+if (
+  req.method === "POST" &&
+  new URL(req.url).pathname === "/api/max-webhook"
+) {
+  try {
+    const body = await req.text();
+
+    console.log("MAX webhook:", body);
+
+    const response = await fetch(
+      "http://217.154.36.84:7126/webhook",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body,
+      }
+    );
+
+    const responseText = await response.text();
+
+    console.log(
+      "Silly response:",
+      response.status,
+      responseText
+    );
+
+    return new Response(responseText, {
+      status: response.status,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+      },
+    });
+  } catch (error) {
+    console.error("MAX webhook proxy error:", error);
+
+    return new Response("Proxy error", {
+      status: 502,
+    });
+  }
+}
+
+
+
+
+
+
+
+
+
+
+    
     const url = new URL(req.url); // для работы с url 
 
     // Ответ на предварительный CORS-запрос, чтобы сайт получил данные и бекенд не послал
