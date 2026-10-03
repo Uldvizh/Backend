@@ -11,28 +11,7 @@ const supabase = createClient(process.env.SUPABASE_URL!,process.env.SUPABASE_KEY
 
 export default async (req: Request) => { // главная функция
 
-//тестовая фигня 
 
-if (req.method === "POST" && new URL(req.url).pathname === "/api/max-webhook") { // вебхук для бота в максе, т.к нужно https соединение , а ана другом хостинге его нету :( , да , это костыль
-  try {
-    const response = await fetch("http://217.154.36.84:7126/webhook", { //куда отправлять пост (это другой хостинг на http)
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: await req.text()
-    });
-
-    return new Response(await response.text(), {status: response.status});
-  } catch {return new Response("Proxy error", { status: 502 });}
-
-}
-
-
-
-
-
-
-
-    
     const url = new URL(req.url); // для работы с url 
 
     // Ответ на предварительный CORS-запрос, чтобы сайт получил данные и бекенд не послал
