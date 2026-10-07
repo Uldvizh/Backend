@@ -74,6 +74,7 @@ export default async (req: Request) => { // главная функция
         // Добавляем мероприятие в Supabase
         const { data, error } = await supabase //не забывать везде редачить это, когда меняю базу данных
             .from("events")
+
             .insert({
                 title: body.title,
                 status: body.status,
@@ -83,9 +84,16 @@ export default async (req: Request) => { // главная функция
                 image_url: body.image_url,
                 price: body.price,
                 source_url: body.source_url,
-                "18+": body["18+"],
-                broadcaster: body.broadcaster
+                broadcaster: body.broadcaster,
+                source: body.source,
+                broadcaster_url: body.broadcaster_url,
+                age: body.age,
+                type: body.type,
+                address: body.address,
+                external_id: body.external_id,
+                warning: body.warning
             })
+
             .select() // сохранить для отправки сохранённого мероприятия 
             .single(); // только одна запись без массива
 
@@ -116,8 +124,14 @@ export default async (req: Request) => { // главная функция
                 image_url: body.image_url,
                 price: body.price,
                 source_url: body.source_url,
-                "18+": body["18+"],
-                broadcaster: body.broadcaster
+                broadcaster: body.broadcaster,
+                source: body.source,
+                broadcaster_url: body.broadcaster_url,
+                age: body.age,
+                type: body.type,
+                address: body.address,
+                external_id: body.external_id,
+                warning: body.warning
             })
             .eq("id", id) // только именно этот id 
             .select()
