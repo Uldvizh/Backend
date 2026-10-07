@@ -1,6 +1,25 @@
 # Бекенд
+1233
+## Запуск локально
 
-Текст1
+ - git clone https://github.com/Uldvizh/Backend.git 
+ - npm install npm
+ - install -g netlify-cli
+ - netlify dev
+## Список функций
+
+ - /api/events/approved
+ - /api/events
+ - й
+
+|Метод|Функция|Что делает |Ну |
+|-|-|-|-|
+|`GET`|`/api/events/approved`|Получить только одобренные мероприятия|-|
+|``GET``|`/api/events`|Получить все мероприятия|+|
+|`POST`|`/api/events`|Создать мероприятие|+|
+|`PUT`|``/api/events/:id``|Изменить мероприятие|+|
+|`DELETE`|``/api/events/:id``|Удалить мероприятие|+|
+
 
 
 # База данных
