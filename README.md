@@ -63,28 +63,3 @@ SUPABASE_KEY=
 |`address`	|text|  `Ул. Пушкина дом Черепушкина`           |Адрес, где проходит мероприятие           |
 |`external_id`	|text|  `ticketsteam-9145@63950069`            |Любые данные для облегчения работы парсера, обычно это какие то уникальные элементы по типу даты, номера мерпориятия и тд         |
 
-
-
-## Create files and folders
-
-The file explorer is accessible using the button in left corner of the navigation bar. You can create a new file by clicking the **New file** button in the file explorer. You can also create folders by clicking the **New folder** button.
-
-## Текст2
-
-текст3
-
-
-
-
-## текст4
-
-текст5
-
-|0|0 |0 |
-|-|-|-|
-|1|11|44|
-|2|22|55|
-|3|33|66|
-
-
-
