@@ -2,17 +2,14 @@
 1233
 ## Запуск локально
 
- - git clone https://github.com/Uldvizh/Backend.git 
- - npm install npm
- - install -g netlify-cli
- - netlify dev
+ 1. git clone https://github.com/Uldvizh/Backend.git 
+  2. npm install npm
+  3. install -g netlify-cli
+  4. netlify dev 
+
 ## Список функций
 
- - /api/events/approved
- - /api/events
- - й
-
-|Метод|Функция|Что делает |Ну |
+|Метод|Функция|Что делает |Нужна ли авторизация |
 |-|-|-|-|
 |`GET`|`/api/events/approved`|Получить только одобренные мероприятия|-|
 |``GET``|`/api/events`|Получить все мероприятия|+|
