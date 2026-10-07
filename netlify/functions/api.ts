@@ -116,6 +116,7 @@ export default async (req: Request) => { // главная функция
 
         const body = await req.json(); // ждём данные для изменений 
 
+
         const { data, error } = await supabase // изменяем старые 
             .from("events")
             .update({
