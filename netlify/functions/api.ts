@@ -91,7 +91,10 @@ export default async (req: Request) => { // главная функция
                 type: body.type,
                 address: body.address,
                 external_id: body.external_id,
-                warning: body.warning
+                warning: body.warning,
+                source2: body.source2,
+                source2_url: body.source2_url
+
             })
 
             .select() // сохранить для отправки сохранённого мероприятия 
@@ -131,7 +134,9 @@ export default async (req: Request) => { // главная функция
                 type: body.type,
                 address: body.address,
                 external_id: body.external_id,
-                warning: body.warning
+                warning: body.warning,
+                source2: body.source2,
+                source2_url: body.source2_url
             })
             .eq("id", id) // только именно этот id 
             .select()
