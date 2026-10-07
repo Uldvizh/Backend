@@ -3,3 +3,7 @@
 .env
 node_modules
 .netlify
+
+-_cmd.bat
+-_code_editor.bat
+-_start_backend.bat
