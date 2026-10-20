@@ -1,4 +1,7 @@
-﻿import type { Config } from "@netlify/functions"; // импортируем тип Config
+﻿// @ts-check // для идеального кода
+// @ts-nocheck // никто не идеален
+
+import type { Config } from "@netlify/functions"; // импортируем тип Config
 import { createClient } from "@supabase/supabase-js"; // импрортируем супербазу
 
 const corsHeaders = { // CORS
@@ -11,8 +14,59 @@ const supabase = createClient(process.env.SUPABASE_URL!,process.env.SUPABASE_KEY
 
 export default async (req: Request) => { // главная функция
 
+    
+    const url = new URL(req.url); // для работы с url
 
-    const url = new URL(req.url); // для работы с url 
+    /*
+    import { Context } from "netlify:edge";
+
+    export default async (request: Request, context: Context) => {
+
+        const joke = await fetch("https://icanhazdadjoke.com/", {
+            "headers": {
+                "Accept": "application/json"
+            }
+        });
+
+        const jsonData = await joke.json();
+        return context.json(jsonData);
+    };*/
+
+    //=== /api/max-webhook
+    // прокси max => backend => bot => max => ...
+    if (req.method === "POST" && url.pathname === "/api/webhook") {
+        try {
+            const body = await req.text();
+            const secret = req.headers.get("X-Max-Bot-Api-Secret");
+
+
+            const response = await fetch(
+                
+                process.env.BOT_MAX_URL,
+                {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json",
+                        ...(secret ? { "X-Max-Bot-Api-Secret": secret } : {})
+                    },
+                    body: body
+                }
+            );
+
+            return new Response(await response.text(), {status: response.status});
+
+
+
+        } catch (error) {
+            console.error("Webhook error:", error);
+            return new Response("Ошибка", { status: 502 });
+
+        }
+    }
+
+
+
+
+
 
     // Ответ на предварительный CORS-запрос, чтобы сайт получил данные и бекенд не послал
     if (req.method === "OPTIONS") {
