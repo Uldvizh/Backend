@@ -50,7 +50,7 @@ SUPABASE_KEY=
 |`start_date`	|timestamp|   ` 2026-08-08 10:00:00+00 `            |Время начала мероприятия, указывается в UTS+0          |
 |`end_date`	|timestamp|    `2026-08-08 10:18:00+00`              |Время конца мероприятия (примерное, если не указано, то база данных сама прибавляет к start_date 12 часов и присваивает это значине в end_date)         |
 |`image_url`	|text|     [Ссылка](https://ulpressa.ru/wp-content/uploads/2026/06/m_fktibkcgpcyfamieplesudpktfdig-bv0itlhws3zpnnokkesnrdt6anjszqlsmzlqvdlktmp-vjcqxdhllomd-724x1024.jpg)           |Ссылка на любой медиафайл           |
-|`price`	|int|  ` 0 `            |Цена входа, билета           |
+|`price`	|int|  ` 0 `            |Цена входа, билета (-1 = свободный взнос)           |
 |`source`	|text|  `УлПресса`         |Названия 1 источника           |
 |`source_url`	|text|  [ссылка1](https://ulpressa.ru/event/2026-08-08-festival-nashe-vremya/)                |Ссылка на 1 источник          |
 |`source2`	|text|       `Комсомольская правда`         |Название 2 источника           |
