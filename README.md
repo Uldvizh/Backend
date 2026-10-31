@@ -16,7 +16,7 @@ SUPABASE_URL=
 SUPABASE_KEY=
 ```
 
-## Запуск локально
+## Запуск локально (перед этим лучше удалить мост вебхука)
 
  1. git clone https://github.com/Uldvizh/Backend.git 
   2. npm install npm
